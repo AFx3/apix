@@ -1,0 +1,18 @@
+# Use the official MongoDB image as the base image
+FROM mongo:latest
+
+# Set environment variables for MongoDB initialization
+ENV MONGO_INITDB_ROOT_USERNAME=root
+ENV MONGO_INITDB_ROOT_PASSWORD=rootpassword
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the contents of the local 'data/db' directory into the container
+COPY ./data/db /data/db
+
+# Expose the default MongoDB port
+EXPOSE 27017
+
+# Start MongoDB when the container starts
+CMD ["mongod"]
