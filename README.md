@@ -10,3 +10,8 @@ mongosh "mongodb://localhost:27017" --authenticationDatabase admin
 # fill the db
 cd worker
 python3 mongo_server.py
+
+# influxdb
+cd influx
+sudo docker run -d --name my-influxdb-container -p 8086:8086 my-influxdb-image  
+python3 app.py

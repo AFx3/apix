@@ -1,13 +1,13 @@
 from pymongo import MongoClient
 import time
 
-# Attendi per dare al server MongoDB nel container il tempo di avviarsi completamente
+# waiting for the mongodb container
 time.sleep(5)
 
-# Connessione al server MongoDB nel container Docker
+# Connect to the db
 client = MongoClient("mongodb://127.0.0.1:27017/")
 
-# Creazione del database e della collezione se non esistono
+# db and collection creation 
 db = client["storage"]
 collection = db["kpi_collection"]
 
